@@ -1,0 +1,25 @@
+CREATE DATABASE LIVRO;
+USE LIVRO;
+CREATE TABLE `cdlivro` (
+  `idLivro` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL,
+  `autor` varchar(255) NOT NULL,
+  `editora` varchar(255) NOT NULL,
+  `genero` varchar(255) NOT NULL,
+  `numero_paginas` varchar(255) NOT NULL,
+  `dataPublicacao` varchar(255) NOT NULL,
+  PRIMARY KEY (`idLivro`)
+);
+
+INSERT INTO `cdlivro` VALUES (1,'senhor dos aneis','tolken','livre','ficcao','12','23-06-2000'),(2,'senhor dos aneis','tolken','livre','ficcao','12','23-06-2000'),(3,'senhor dos aneis','tolken','livre','ficcao','12','23-06-2000'),(4,'As Cronicas de Narnia','Cs Liws','tomas Nelson','ficcao','300','27-06-2007'),(5,'vamos la ','agora vai ','tomas Nelson','rodou','67','23-09-2023'),(6,'nildo','nildo','nildo ','nildo ','5','23-04-2023'),(7,'yte','hoje','mais oque','pizaa','45','15-11-2023'),(9,'leticia ','amor ','linda ','gostasa ','24','15-11-2023'),(20,'nildo ','','','','','');
+
+CREATE TABLE `usuario` (
+  `idUsuario` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `idade` varchar(255) NOT NULL,
+  `senha` varchar(255) NOT NULL,
+  PRIMARY KEY (`idUsuario`)
+);
+
+INSERT INTO `usuario` VALUES (1,'toninho','toninho@hotmail.com','28','12345');
