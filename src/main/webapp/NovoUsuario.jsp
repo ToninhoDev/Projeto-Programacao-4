@@ -1,4 +1,4 @@
-<%@ Dao dao = new Dao(); %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
 <br>
 <input class="form-control" type="text" name="idadeUsuario" placeholder="Idade">
 <br>
-<input class="form-control" type="text" name="senhaUsuario" placeholder="Senha">
+<input class="form-control" type="password" name="senhaUsuario" placeholder="Senha">
 <br>
 <br>
 

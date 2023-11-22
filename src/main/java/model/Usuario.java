@@ -61,6 +61,17 @@ public class Usuario {
 		this.senha = senha;
 	}
 	
+	public boolean ehIgual(String nome, String email) {
+		if(!this.nome.equalsIgnoreCase(nome)) {
+			return false;
+		}
+		if(this.email.equalsIgnoreCase(email)) {
+			return false;
+		}
+		
+		return true;
+	}
+	
 	
 	
 

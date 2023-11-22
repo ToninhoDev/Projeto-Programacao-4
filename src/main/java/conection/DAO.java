@@ -198,4 +198,36 @@ public class DAO {
 
 	}
 
+	public Usuario loginUsuario(Usuario usuario) {
+		Usuario usuRetorno = null;
+		String login = " select * from usuario where email = ? and senha = ?";
+
+		try {
+
+			Connection con = conectar();
+
+			PreparedStatement stmt = con.prepareStatement(login);
+
+			stmt.setString(1, usuario.getEmail());
+			stmt.setString(2, usuario.getSenha());
+
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				usuRetorno = new Usuario();
+				usuario.setIdUsuario(rs.getString("id"));
+				usuario.setNome(rs.getString("nome"));
+				usuario.setEmail(rs.getString("email"));
+				usuario.setIdade(rs.getString("idade"));
+				usuario.setSenha(rs.getString("senha"));
+			}
+			con.close();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return usuRetorno;
+
+	}
+
 }

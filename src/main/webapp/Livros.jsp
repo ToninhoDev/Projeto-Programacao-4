@@ -3,8 +3,10 @@
 
 <%@ page import="model.Livro"%>
 <%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.List"%>
 <%
 ArrayList<Livro> lista = (ArrayList<Livro>) request.getAttribute("livros");
+
 %>
 
 
@@ -23,12 +25,14 @@ ArrayList<Livro> lista = (ArrayList<Livro>) request.getAttribute("livros");
 
 	<h1 class="h1">Livros</h1>
 	<br>
+	<br>
+	<a href="sair">Sair</a>
 	
 	<table class="table align-items-center table-borderless">
 		<thead class="table-primary">
 			<tr>
 
-				<th scope="col">ID</th>
+				
 				<th scope="col">NOME</th>
 				<th scope="col">AUTOR</th>
 				<th scope="col">EDITORA</th>
@@ -48,7 +52,6 @@ ArrayList<Livro> lista = (ArrayList<Livro>) request.getAttribute("livros");
 			for (int i = 0; i < lista.size(); i++) {
 			%>
 			<tr>
-			<td><%=lista.get(i).getId()%></td>
 			<td><%=lista.get(i).getNome()%></td>
 			<td><%=lista.get(i).getAutor()%></td>
 			<td><%=lista.get(i).getEditora()%></td>

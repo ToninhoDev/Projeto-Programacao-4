@@ -11,12 +11,12 @@
 <body>
 
 
-	<a href="LoginUsuario.jsp">Voltar</a>
+	<a href="voltar">Voltar</a>
 
 	<h1>Editar Livro </h1>
 	<br>
 	<form name="formInserirLivro" action="update">
-		<br> <input class="form-control" type="text" name="id" readonly="readonly" value="<%out.print(request.getAttribute("id")); %>">
+		<br> <input class="form-control" type="hidden" name="id" readonly="readonly" value="<%out.print(request.getAttribute("id")); %>">
 		<br> <input class="form-control" type="text" name="nome" value="<%out.print(request.getAttribute("nome")); %>">
 		<br> <input class="form-control" type="text" name="autor" value="<%out.print(request.getAttribute("autor")); %>">
 		<br> <input class="form-control" type="text" name="editora" value="<%out.print(request.getAttribute("editora")); %>"> 

@@ -14,7 +14,8 @@ import conection.DAO;
 import model.Livro;
 import model.Usuario;
 
-@WebServlet(urlPatterns = { "/Controller", "/main", "/insert", "/editar", "/update", "/delete", "/cadastrarUsuario" })
+@WebServlet(urlPatterns = { "/Controller", "/main", "/insert", "/editar", "/update", "/delete", "/cadastrarUsuario", "/sair", 
+		"/voltar" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DAO dao = new DAO();
@@ -43,9 +44,13 @@ public class Controller extends HttpServlet {
 			deletarLivro(request, response);
 		}else if (action.equals("/cadastrarUsuario")) {
 			cadastrarUsuario(request, response);
+		}else if (action.equals("/sair")) {
+			sairUsuario(request, response);
+		}else if (action.equals("/voltar")) {
+			voltar(request, response);
 		}
 		else {
-			response.sendRedirect("index.html");
+			response.sendRedirect("LoginUsuario.jsp");
 		}
 	}
 
@@ -72,7 +77,7 @@ public class Controller extends HttpServlet {
 
 		dao.inserirLivro(livro);
 
-		response.sendRedirect("novoLivro.jsp");
+		response.sendRedirect("main");
 	}
 	
 	protected void editarLivro(HttpServletRequest request, HttpServletResponse resposnse) throws ServletException, IOException {
@@ -127,7 +132,33 @@ public class Controller extends HttpServlet {
 		
 		dao.cadastrarUsuario(usuario);
 		
-	resposnse.sendRedirect("index.html");
+	resposnse.sendRedirect("LoginUsuario.jsp");
+	}
+	
+	protected void sairUsuario(HttpServletRequest request, HttpServletResponse resposnse) throws ServletException, IOException{
+		resposnse.sendRedirect("LoginUsuario.jsp");
+	}
+	protected void voltar(HttpServletRequest request, HttpServletResponse resposnse) throws ServletException, IOException{
+		resposnse.sendRedirect("main");
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String emailUsuario =  request.getParameter("emailUsuario");
+		String senhaUsuario = request.getParameter("senhaUsuario");
+		
+		
+		usuario.setEmail(emailUsuario);
+		usuario.setSenha(senhaUsuario);
+		
+		Usuario usuarioLogado = dao.loginUsuario(usuario);
+		
+		if(usuarioLogado != null) {
+			response.sendRedirect("main");
+		}else {
+			response.sendRedirect("LoginUsuario.jsp");
+		}
+			
+		
 	}
 	
 

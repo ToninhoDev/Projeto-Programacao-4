@@ -17,23 +17,15 @@
 <h1 class="h1"> Login de Usuario </h1>
 
 <br>
-<form name= "formInserirUsuario" action="" >
-<br>
-<input class="form-control" type="text" name="nomeUsuario" placeholder="Nome Do Usuario">
+<form name= "formInserirUsuario" action="Controller" method="post" >
 <br>
 <input class="form-control" type="text" name="emailUsuario" placeholder="E-mail">
 <br>
-
+<input class="form-control" type="password" name="senhaUsuario" placeholder="Senha">
+<br>
 
 <input class="btn btn-primary" type="submit" value="Entrar">
 
-<br>
-<br>
-<br>
-
-<a href="main">Acessar</a>
-
-<br>
 <br>
 <br>
 <a href="NovoUsuario.jsp">Novo Usuario</a>
