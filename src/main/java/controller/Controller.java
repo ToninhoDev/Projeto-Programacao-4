@@ -14,8 +14,8 @@ import conection.DAO;
 import model.Livro;
 import model.Usuario;
 
-@WebServlet(urlPatterns = { "/Controller", "/main", "/insert", "/editar", "/update", "/delete", "/cadastrarUsuario", "/sair", 
-		"/voltar" })
+@WebServlet(urlPatterns = { "/Controller", "/main", "/insert", "/selecionarLivro", "/update", "/delete", "/cadastrarUsuario", "/sair", 
+		"/voltar", "/avaliarLivro" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DAO dao = new DAO();
@@ -36,8 +36,8 @@ public class Controller extends HttpServlet {
 			livros(request, response);
 		} else if (action.equals("/insert")) {
 			novoLivro(request, response);
-		} else if (action.equals("/editar")) {
-			editarLivro(request, response);
+		} else if (action.equals("/selecionarLivro")) {
+			selecionarLivro(request, response);
 		}else if (action.equals("/update")) {
 			alterarLivro(request, response);
 		}else if (action.equals("/delete")) {
@@ -48,6 +48,8 @@ public class Controller extends HttpServlet {
 			sairUsuario(request, response);
 		}else if (action.equals("/voltar")) {
 			voltar(request, response);
+		}else if (action.equals("/avaliarLivro")) {
+			avaliarLivro(request, response);
 		}
 		else {
 			response.sendRedirect("LoginUsuario.jsp");
@@ -80,7 +82,7 @@ public class Controller extends HttpServlet {
 		response.sendRedirect("main");
 	}
 	
-	protected void editarLivro(HttpServletRequest request, HttpServletResponse resposnse) throws ServletException, IOException {
+	protected void selecionarLivro(HttpServletRequest request, HttpServletResponse resposnse) throws ServletException, IOException {
 		String id = request.getParameter("id");
 		System.out.println(id);
 		livro.setId(Integer.parseInt(id));
@@ -142,9 +144,25 @@ public class Controller extends HttpServlet {
 		resposnse.sendRedirect("main");
 	}
 	
+	protected void avaliarLivro(HttpServletRequest request, HttpServletResponse resposnse) throws ServletException, IOException{
+		String idLivro = request.getParameter("idAvaliar");
+		System.out.println(idLivro);
+		livro.setId(Integer.parseInt(idLivro));
+		dao.selecionarLivro(livro);
+		
+		
+		request.setAttribute("nome", livro.getNome());
+		request.setAttribute("autor", livro.getAutor());
+		
+		RequestDispatcher rd = request.getRequestDispatcher("AvaliarLivro.jsp");
+		rd.forward(request, resposnse);
+		
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String emailUsuario =  request.getParameter("emailUsuario");
 		String senhaUsuario = request.getParameter("senhaUsuario");
+		
 		
 		
 		usuario.setEmail(emailUsuario);

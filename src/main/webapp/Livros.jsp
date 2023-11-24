@@ -3,18 +3,13 @@
 
 <%@ page import="model.Livro"%>
 <%@ page import="java.util.ArrayList"%>
-<%@ page import="java.util.List"%>
 <%
 ArrayList<Livro> lista = (ArrayList<Livro>) request.getAttribute("livros");
 
 %>
-
-
 <!DOCTYPE html>
 <html>
 <head>
-
-
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -30,9 +25,7 @@ ArrayList<Livro> lista = (ArrayList<Livro>) request.getAttribute("livros");
 	
 	<table class="table align-items-center table-borderless">
 		<thead class="table-primary">
-			<tr>
-
-				
+			<tr>				
 				<th scope="col">NOME</th>
 				<th scope="col">AUTOR</th>
 				<th scope="col">EDITORA</th>
@@ -52,15 +45,16 @@ ArrayList<Livro> lista = (ArrayList<Livro>) request.getAttribute("livros");
 			for (int i = 0; i < lista.size(); i++) {
 			%>
 			<tr>
+			
 			<td><%=lista.get(i).getNome()%></td>
 			<td><%=lista.get(i).getAutor()%></td>
 			<td><%=lista.get(i).getEditora()%></td>
 			<td><%=lista.get(i).getGenero()%></td>
 			<td><%=lista.get(i).getNumeroPaginas()%></td>
 			<td><%=lista.get(i).getDataPublicacao()%></td>
-			<td><a class="btn btn-primary" href="editar?id=<%=lista.get(i).getId()%>">EDITAR</a></td>
+			<td><a class="btn btn-primary" href="selecionarLivro?id=<%=lista.get(i).getId()%>">EDITAR</a></td>
 			<td><a class="btn btn-danger" href="javascript:confirmar(<%=lista.get(i).getId()%>)">EXCLUIR</a></td>	
-			<td><a class="btn btn-secondary" href="">AVALIAR</a></td>
+			<td><a class="btn btn-secondary" href="avaliarLivro?idAvaliar=<%=lista.get(i).getId()%>">AVALIAR</a></td>
 			<td></td>
 			</tr>
 			<%
