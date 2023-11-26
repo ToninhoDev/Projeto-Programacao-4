@@ -28,7 +28,7 @@
 
 <br>
 <br>
-<a href="NovoUsuario.jsp">Novo Usuario</a>
+<a class="btn" href="NovoUsuario.jsp">Novo Usuario</a>
 </form>
 </body>
 </html>

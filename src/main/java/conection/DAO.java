@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import model.Avaliacao;
 import model.Livro;
 import model.Usuario;
 
@@ -228,6 +229,52 @@ public class DAO {
 		}
 		return usuRetorno;
 
+	}
+	
+	public void selecionarUsuario(Usuario usuario) {
+		String buscar = "select * from usuario where idUsuario=?";
+
+		try {
+			Connection con = conectar();
+
+			PreparedStatement stmt = con.prepareStatement(buscar);
+
+			stmt.setString(1, usuario.getIdUsuario());
+
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				usuario.setIdUsuario(rs.getString("idUsuario"));
+				usuario.setNome(rs.getString("nome"));
+				usuario.setEmail(rs.getString("email"));
+				usuario.setIdade(rs.getString("idade"));
+			}
+			con.close();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	
+	public void inserirAvaliação(Avaliacao avaliacao, Livro livro, Usuario usuario) {
+		String inserirAvaliacao = 
+		"insert into avaliacao(idLivro_fk, idUsuario_fk, avaliacao, nomeLivro, nomeUsuario) values(?,?,?,?,?);";
+		
+		try {
+			Connection con = conectar();
+			
+			PreparedStatement stmt = con.prepareStatement(inserirAvaliacao);
+			
+			stmt.setInt(1, livro.getId());
+			stmt.setString(2, usuario.getIdUsuario());
+			stmt.setString(3, avaliacao.getAvaliacao());
+			
+			stmt.execute();
+			con.close();	 		
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 }

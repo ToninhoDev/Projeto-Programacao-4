@@ -11,16 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import conection.DAO;
+import model.Avaliacao;
 import model.Livro;
 import model.Usuario;
 
 @WebServlet(urlPatterns = { "/Controller", "/main", "/insert", "/selecionarLivro", "/update", "/delete", "/cadastrarUsuario", "/sair", 
-		"/voltar", "/avaliarLivro" })
+		"/voltar", "/avaliarLivro", "/inserirAvaliacao" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DAO dao = new DAO();
 	Livro livro = new Livro();
 	Usuario usuario = new Usuario();
+	Avaliacao avaliacao = new Avaliacao();
 
 	public Controller() {
 		super();
@@ -34,7 +36,7 @@ public class Controller extends HttpServlet {
 		System.out.println(action);
 		if (action.equals("/main")) {
 			livros(request, response);
-		} else if (action.equals("/insert")) {
+		}else if (action.equals("/insert")) {
 			novoLivro(request, response);
 		} else if (action.equals("/selecionarLivro")) {
 			selecionarLivro(request, response);
@@ -50,6 +52,8 @@ public class Controller extends HttpServlet {
 			voltar(request, response);
 		}else if (action.equals("/avaliarLivro")) {
 			avaliarLivro(request, response);
+		}else if (action.equals("/inserirAvaliacao")) {
+			inserirAvaiacao(request, response);
 		}
 		else {
 			response.sendRedirect("LoginUsuario.jsp");
@@ -81,6 +85,7 @@ public class Controller extends HttpServlet {
 
 		response.sendRedirect("main");
 	}
+	
 	
 	protected void selecionarLivro(HttpServletRequest request, HttpServletResponse resposnse) throws ServletException, IOException {
 		String id = request.getParameter("id");
@@ -157,6 +162,14 @@ public class Controller extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("AvaliarLivro.jsp");
 		rd.forward(request, resposnse);
 		
+	}
+	
+	protected void inserirAvaiacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//String inserirAvaliacao = request.getParameter("inserirAvaliacao");
+		
+		
+		//response.sendRedirect("main");
+
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

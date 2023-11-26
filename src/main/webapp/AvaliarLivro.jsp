@@ -28,5 +28,13 @@
 	</tr>
 	</tbody>
 	</table>
+	<form action="">
+	<br>
+	<h3>Avaliação</h3>
+	
+	<textarea name="inserirAvaliacao" rows="10" cols="50"></textarea>
+	<br>
+	<button type="submit" value="Avaliar">Avaliar</button>	
+	</form>
 </body>
 </html>

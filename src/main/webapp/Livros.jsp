@@ -21,7 +21,7 @@ ArrayList<Livro> lista = (ArrayList<Livro>) request.getAttribute("livros");
 	<h1 class="h1">Livros</h1>
 	<br>
 	<br>
-	<a href="sair">Sair</a>
+	<a class="btn" href="sair">Sair</a>
 	
 	<table class="table align-items-center table-borderless">
 		<thead class="table-primary">
