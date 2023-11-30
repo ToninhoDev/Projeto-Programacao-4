@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+div{
+	display: flex;
+	margin-left: 100px;
+	background-color: blue;
+	margin-top: 50px;
+}

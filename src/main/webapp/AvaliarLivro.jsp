@@ -4,18 +4,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="stylessheet" href="style.css">
 <title>Avaliar Livro</title>
 </head>
 <body>
-	<h1>Avaliar Livro</h1>
-	<br>
+<div class="container">
 
-	<a href="voltar">voltar</a>
+	<a id="botaoVoltar" class="btn btn-danger" href="voltar">voltar</a>
 	<br>
 	<br>
-	<table>
-	<thead>
+	<h1>Avaliar Livro</h1>	
+	<br>
+	<table class="table align-items-center table-borderless">
+	<thead class="table-primary">
 	<tr>
 	<th>Nome Do Livro</th>
 	<th>Autor do Livro</th>
@@ -28,13 +32,15 @@
 	</tr>
 	</tbody>
 	</table>
-	<form action="">
+	<form action="inserirAvaliacao">
 	<br>
 	<h3>Avaliação</h3>
 	
-	<textarea name="inserirAvaliacao" rows="10" cols="50"></textarea>
+	<textarea name="inserirAvaliacao" rows="10" cols="70"></textarea>
+	<!-----<input name="inserirAvaliacao" type="text" placeholder="Avaliação">--->
 	<br>
-	<button type="submit" value="Avaliar">Avaliar</button>	
+	<button class="btn btn-success type="submit" value="Avaliar">Avaliar</button>	
 	</form>
+	</div>
 </body>
 </html>

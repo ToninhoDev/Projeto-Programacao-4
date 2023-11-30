@@ -7,10 +7,12 @@
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<link rel="stylessheet" href="style.css">
 <title>Cadastro de Usuario</title>
 </head>
 <body>
-<a href="LoginUsuario.jsp">Voltar</a>
+<div class="container">
+<a id="botaoVoltar" class="btn btn-danger" href="LoginUsuario.jsp">Voltar</a>
 <br>
 <h1 class="h1">Inserir Novo Usuario</h1>
 <br>
@@ -29,9 +31,10 @@
 
 
 <input class="btn btn-primary" type="submit" value="Cadastrar">
-
+<br>
+<br>
 
 </form>
-
+</div>
 </body>
 </html>

@@ -13,19 +13,21 @@ ArrayList<Livro> lista = (ArrayList<Livro>) request.getAttribute("livros");
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+<link rel="stylessheet" href="style.css">
 <title>LIVROS</title>
 </head>
 <body>
+<div class="container">
 
+	<a id="botaoVoltar" class="btn btn-danger" href="sair">Sair</a>
+	<br>
+	<br>
 	<h1 class="h1">Livros</h1>
-	<br>
-	<br>
-	<a class="btn" href="sair">Sair</a>
-	
+	<br>	
 	<table class="table align-items-center table-borderless">
 		<thead class="table-primary">
-			<tr>				
+			<tr>
+							
 				<th scope="col">NOME</th>
 				<th scope="col">AUTOR</th>
 				<th scope="col">EDITORA</th>
@@ -45,7 +47,6 @@ ArrayList<Livro> lista = (ArrayList<Livro>) request.getAttribute("livros");
 			for (int i = 0; i < lista.size(); i++) {
 			%>
 			<tr>
-			
 			<td><%=lista.get(i).getNome()%></td>
 			<td><%=lista.get(i).getAutor()%></td>
 			<td><%=lista.get(i).getEditora()%></td>
@@ -65,7 +66,10 @@ ArrayList<Livro> lista = (ArrayList<Livro>) request.getAttribute("livros");
 		<script src= "SCRIPTS/confirmador.js"></script>
 	</table>
 		<br>
-		<a class="btn btn-primary" href="novoLivro.jsp">Novo Livro</a>
+		<a class="btn btn-primary" href="novoLivro.jsp" onclick="validar()">Novo Livro</a>
+
+</div>
+<script src="SCRIPTS/validador.js"></script>
 
 </body>
 </html>

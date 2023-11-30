@@ -9,12 +9,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+<link rel="stylessheet" href="style.css">
 <title>Inserir Novo Livro</title>
 </head>
 <body>
-
-<a href = "voltar">Voltar</a>
+<div class="container">
+<a id="botaoVoltar" class="btn btn-danger" href = "voltar">Voltar</a>
 
 <h1 class="h1">Inserir Novo Livro</h1>
 <br>
@@ -35,10 +35,11 @@
 <br>
 <br>
 
-<input class="btn btn-primary" type="submit" value="Cadastrar">
+<input class="btn btn-primary" type="submit" value="Cadastrar" onclick="validar()">
 
 
 </form>
-
+</div>
+<script src="SCRIPTS/validador.js"></script>
 </body>
 </html>

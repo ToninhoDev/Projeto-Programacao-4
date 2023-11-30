@@ -6,12 +6,13 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="stylessheet" href="style.css">
 <title class="h1">Editar Livro</title>
 </head>
 <body>
+<div class="container">
 
-
-	<a href="voltar">Voltar</a>
+	<a id="botaoVoltar" class="btn btn-danger" href="voltar">Voltar</a>
 
 	<h1>Editar Livro </h1>
 	<br>
@@ -30,6 +31,6 @@
 
 
 	</form>
-
+</div>
 </body>
 </html>

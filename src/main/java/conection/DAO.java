@@ -244,10 +244,8 @@ public class DAO {
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				usuario.setIdUsuario(rs.getString("idUsuario"));
 				usuario.setNome(rs.getString("nome"));
 				usuario.setEmail(rs.getString("email"));
-				usuario.setIdade(rs.getString("idade"));
 			}
 			con.close();
 
@@ -256,20 +254,20 @@ public class DAO {
 		}
 	}
 	
-	public void inserirAvaliação(Avaliacao avaliacao, Livro livro, Usuario usuario) {
+	public void inserirAvaliação(Avaliacao avaliacao) {
 		String inserirAvaliacao = 
-		"insert into avaliacao(idLivro_fk, idUsuario_fk, avaliacao, nomeLivro, nomeUsuario) values(?,?,?,?,?);";
+		"insert into avaliacao(avaliacao) values(?)";
 		
 		try {
 			Connection con = conectar();
 			
 			PreparedStatement stmt = con.prepareStatement(inserirAvaliacao);
 			
-			stmt.setInt(1, livro.getId());
-			stmt.setString(2, usuario.getIdUsuario());
-			stmt.setString(3, avaliacao.getAvaliacao());
+			
+			stmt.setString(2, avaliacao.getAvaliacao());
 			
 			stmt.execute();
+			
 			con.close();	 		
 			
 		} catch (Exception e) {

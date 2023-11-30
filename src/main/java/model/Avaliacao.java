@@ -3,8 +3,7 @@ package model;
 public class Avaliacao {
 	
 	private String avaliacao;
-	private Usuario usuario;
-	private Livro livro;
+	
 	
 	
 	public Avaliacao() {
@@ -12,12 +11,12 @@ public class Avaliacao {
 	}
 
 
-	public Avaliacao(String avaliacao, Usuario usuario, Livro livro) {
+
+	public Avaliacao(String avaliacao) {
 		super();
 		this.avaliacao = avaliacao;
-		this.usuario = usuario;
-		this.livro = livro;
 	}
+
 
 
 	public String getAvaliacao() {
@@ -25,36 +24,10 @@ public class Avaliacao {
 	}
 
 
+
 	public void setAvaliacao(String avaliacao) {
 		this.avaliacao = avaliacao;
 	}
 
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-
-	public Livro getLivro() {
-		return livro;
-	}
-
-
-	public void setLivro(Livro livro) {
-		this.livro = livro;
-	}
 	
-	
-	
-
-	
-	
-	
-	
-
 }
